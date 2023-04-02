@@ -16,7 +16,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
 function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
@@ -33,6 +32,7 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
+
       // setProducts(result.data);
     };
     fetchData();
@@ -53,10 +53,10 @@ function HomeScreen() {
               </Link>
               <div className="product-info">
                 <Link to={`/product/${product.slug}`}>
-                  <p> {product.name} </p>
+                  <p>{product.name}</p>
                 </Link>
                 <p>
-                  <strong> ${product.price} </strong>
+                  <strong>${product.price}</strong>
                 </p>
                 <button>Add to cart</button>
               </div>
